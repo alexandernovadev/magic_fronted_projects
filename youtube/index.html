@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youyube</title>
+</head>
+<body>
+  <style>
+    html{
+      padding: 20px;
+      background: rgb(19, 18, 18);
+    }
+    .youtube{
+      position: relative; 
+      background: red;
+      width: 200px;
+      height: 150px;
+      margin: 20px 0;
+      border-radius: 50% / 10%;
+    }
+    .youtube:after{
+      content: "";
+      background: red;
+      position: absolute;
+      top:10%;
+      bottom:10%;
+      right:-5%;
+      left:-5%;
+      border-radius: 5% / 40%;
+    }
+
+    .triangle{
+      z-index: 1;
+      position: absolute;
+      border-left: 60px solid white;
+      border-top: 35px solid transparent;
+      border-bottom: 35px solid transparent;
+      top:25%;
+      left:37.5%;
+    }
+
+  </style>
+  <div class="youtube">
+    <div class="triangle"></div>
+  </div>
+
+</body>
+</html>

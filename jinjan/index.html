@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jin Jan</title>
+  </head>
+  <style>
+    body {
+      background: rgb(65, 65, 69);
+    }
+
+    :root{
+      --doce:12px;
+      --diesocho:18px;
+
+      --w:96px;
+      --h:48px;
+
+      --bup:50px;
+      --b:2px;
+    }
+    .yin-yang {
+      width: var(--w);
+      height: var(--h);
+      background: white;
+      border-color: black;
+      position: relative;
+      border-style: solid;
+      border-width: var(--bup) var(--b) var(--b) var(--b);
+      /* border-width: 50px 2px 2px 2px; */
+      border-radius: 50%;
+      animation: spin 8s linear infinite;  
+    }
+
+    .yin-yang::before {
+      content: "";
+      background: white;
+      border: var(--diesocho) solid black;
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      border-radius: 50%;
+      width: var(--doce);
+      height: var(--doce);
+    }
+
+    .yin-yang::after {
+      content: "";
+      background: black;
+      border: var(--diesocho) solid white;
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      border-radius: 50%;
+      width: var(--doce);
+      height: var(--doce);
+    }
+
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <body>
+    <div class="yin-yang"></div>
+    <br>
+    <br>
+    <input 
+      type="range" 
+      min="50" 
+      max="900"
+      value="2"
+      step="1"
+      onchange="cambio(this.value)">
+  </body>
+  <script>
+    let jinjan = document.querySelector('.yin-yang')
+    function cambio(value){
+      let e = (value /100)
+      // changue size yin-yang
+      document.documentElement.style.setProperty('--diesocho', `${18*e}px`);
+      document.documentElement.style.setProperty('--doce', `${12*e}px`);
+      document.documentElement.style.setProperty('--h', `${48*e}px`);
+      document.documentElement.style.setProperty('--w', `${96*e}px`);
+      document.documentElement.style.setProperty('--bup', `${50*e}px`);
+      document.documentElement.style.setProperty('--b', `${2*e}px`);
+
+
+      console.log("pasa alof",e);
+    }
+  </script>
+</html>
